@@ -1,11 +1,11 @@
-
+# Script tự động tải WAR từ GitHub Actions và deploy lên Tomcat 9
 
 # Cấu hình
-$repoOwner = "PhamMinhDan"
+$repoOwner = "Hoithiepuit"
 $repoName = "java-servlet-web"
 $artifactName = "servlet-war"
-$tomcatWebapps = "E:\DevOps\Apache_Tomcat\webapps"
-$tomcatStartup = "E:\DevOps\Apache_Tomcat\bin\startup.bat"
+$tomcatWebapps = "D:\Tomcat10\webapps"
+$tomcatStartup = "D:\Tomcat10\bin\startup.bat"
 $warFileName = "java-servlet-web-1.0-SNAPSHOT.war"
 
 # Lấy workflow run mới nhất
