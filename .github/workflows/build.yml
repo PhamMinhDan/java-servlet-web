@@ -1,27 +1,28 @@
-name: Java CI with Maven - Dịch và ghi WAR
+name: Java CI with Maven - Build WAR on HelloServlet Change
 
 on:
   push:
-    branches: [main, "feature-*"]
-  pull_request:
     branches: [main]
-  workflow_dispatch: # Chạy thủ công
+    paths:
+      - "src/main/java/com/example/HelloServlet.java" # Chỉ chạy khi HelloServlet.java thay đổi
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4 # Cập nhật phiên bản checkout
+      - uses: actions/checkout@v4
       - name: Set up JDK 21
-        uses: actions/setup-java@v4 # Cập nhật phiên bản setup-java
+        uses: actions/setup-java@v4
         with:
           java-version: "21"
           distribution: "temurin"
+      - name: Verify with Maven
+        run: mvn clean verify # Kiểm tra mã
       - name: Build with Maven
-        run: mvn clean package
+        run: mvn package # Build WAR
       - name: Upload WAR artifact
-        uses: actions/upload-artifact@v4 # Cập nhật lên v4
+        uses: actions/upload-artifact@v4
         with:
           name: servlet-war
           path: target/*.war
-          if-no-files-found: error # Báo lỗi nếu không tìm thấy file WAR
+          if-no-files-found: error
