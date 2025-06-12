@@ -2,10 +2,11 @@ name: Java CI with Maven - Build WAR on HelloServlet Change
 
 on:
   push:
+    branches: [main, dangluong]
+    # paths:
+    #   - "src/main/java/com/example/HelloServlet.java" # Chỉ chạy khi HelloServlet.java thay đổi
+  pull_request:
     branches: [main]
-    paths:
-      - "src/main/java/com/example/HelloServlet.java" # Chỉ chạy khi HelloServlet.java thay đổi
-
 jobs:
   build:
     runs-on: ubuntu-latest
