@@ -1,8 +1,11 @@
-package com.example;
+package com;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.testng.annotations.Test;
+
+import com.example.HelloServlet;
+
 import org.mockito.Mockito;
 
 import java.io.PrintWriter;
